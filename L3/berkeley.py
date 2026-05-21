@@ -21,8 +21,6 @@ def berkeley_algorithm(num_slaves, master_time, min_offset, max_offset):
         print(f"[Slave {i + 1}] Độ lệch: {offset:+d}s | Thời gian: {slave_time}s")
 
     total_offset = sum(offsets)
-
-    # Tính cả Master, Master có độ lệch là 0
     average_offset = total_offset / (num_slaves + 1)
 
     print()
@@ -33,7 +31,6 @@ def berkeley_algorithm(num_slaves, master_time, min_offset, max_offset):
     print("--- Giai đoạn Đồng bộ (Adjustment) ---")
 
     synchronized_time = master_time + average_offset
-
     print(f"[Master] Thời gian đã đồng bộ: {synchronized_time:.2f}s")
 
     for i in range(num_slaves):
@@ -42,20 +39,9 @@ def berkeley_algorithm(num_slaves, master_time, min_offset, max_offset):
 
         print(f"[Slave {i + 1}] Điều chỉnh: {adjustment:+.2f}s | Thời gian mới: {new_time:.2f}s")
 
-    print()
-    return synchronized_time, offsets, average_offset
 
-
-print("========== TRƯỜNG HỢP 1 ==========")
-result_1 = berkeley_algorithm(
-    num_slaves=5,
-    master_time=500,
-    min_offset=-10,
-    max_offset=10
-)
-
-print("========== TRƯỜNG HỢP 2 ==========")
-result_2 = berkeley_algorithm(
+# ===== THAY THÔNG SỐ Ở ĐÂY =====
+berkeley_algorithm(
     num_slaves=5,
     master_time=100,
     min_offset=-5,
