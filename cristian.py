@@ -12,7 +12,7 @@ def cristians_algorithm(client_request_time, server_response_time, server_time_s
     
     # 1. Calculate Round Trip Time (RTT)
     round_trip_time = server_response_time - client_request_time
-    
+    # 10-5=5 
     # 2. Assume network delay is symmetrical, so client-server path took RTT / 2
     estimated_propagation_delay = round_trip_time / 2
     
@@ -27,7 +27,7 @@ def cristians_algorithm(client_request_time, server_response_time, server_time_s
 t0 = 5
 
 # Server receives request and responds with its time (e.g., 160000.010)
-server_sent_time = 2
+server_sent_time = 8.5
 
 # T1: Client gets the response back 
 t1 = 10
